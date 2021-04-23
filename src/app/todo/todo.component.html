@@ -7,7 +7,7 @@
         <button nz-button nzType="primary" nzSize="large" (click)="gatTaxt()" >Add</button>
       </ng-template>
       <div *ngFor="let x  of items; let index = index;" class="container" >
-          <div  style="margin:4px; min-height: 40px; box-align: center;width: auto;border: double;border-radius: 10px; background-color: {{x.color}};" >{{x.text}}<input  type="button" value="Done" (click)="getDelete(index)" style="margin-left: 100%;" /></div>
+          <div  style="margin:4px; min-height: 40px; box-align: center;width: auto;border: double;border-radius: 10px; background-color: {{x.color}}; color: #FFEFD5;"  >{{x.text}}<input  type="button" value="Done" (click)="getDelete(index)" style="margin-left: 100%; background-color: black;" /></div>
           
       </div> 
          

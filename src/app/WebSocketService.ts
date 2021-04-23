@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { io, Socket } from 'socket.io-client';
 
-//@Injectable()
-export class ChatService {
+@Injectable()
+export class TodoService {
   private socket: Socket;
 
   constructor() {
@@ -14,7 +14,7 @@ export class ChatService {
     
   }
 
-  // EMITTER
+ 
   sendMessage(msg: string) {
      // this.socket.connect();
    console.log(this.socket);
@@ -22,7 +22,7 @@ export class ChatService {
 
   }
 
-  // HANDLER
+
   onNewMessage() {
     return new Observable(observer => {
       this.socket.on('message', msg => {

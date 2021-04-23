@@ -12,7 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TodoComponent } from './todo/todo.component';
 import {  SocketIoModule,SocketIoConfig  } from 'ngx-socket-io';
-import { ChatService } from './WebSocketService';
+import { TodoService } from './WebSocketService';
 
 
 registerLocaleData(en);
@@ -36,7 +36,7 @@ const config: SocketIoConfig = { url: 'http://localhost:8988', options: {} };
     SocketIoModule.forRoot(config), 
 
   ],
-  providers: [ChatService],
+  providers: [TodoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

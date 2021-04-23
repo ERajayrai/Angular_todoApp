@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ChatService } from '../WebSocketService';
+import { TodoService} from '../WebSocketService';
 import { ItemsModel } from './todo.item.model';
 
 @Component({
@@ -12,7 +12,7 @@ export class TodoComponent implements OnInit {
    items : ItemsModel[] = []; 
   
   
-  constructor(private socketService:ChatService) { 
+  constructor(private socketService:TodoService) { 
     
   }
 
