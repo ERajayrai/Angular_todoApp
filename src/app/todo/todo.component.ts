@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TodoService} from '../WebSocketService';
+import { TodoService} from '../TodoService';
 import { ItemsModel } from './todo.item.model';
 
 @Component({
@@ -9,29 +9,51 @@ import { ItemsModel } from './todo.item.model';
 })
 export class TodoComponent implements OnInit {
   public taxt: any;
+  public id:any;
    items : ItemsModel[] = []; 
   
   
   constructor(private socketService:TodoService) { 
+    this.id=this.getRandomColor();
     
   }
 
   ngOnInit(): void {
 
-  }
- 
- 
-  public gatTaxt() {
-   // console.log(this.taxt)
-    this.socketService.sendMessage(this.taxt)
 
-   var colorText: ItemsModel = new ItemsModel();
+    this.socketService.onNewMessage().subscribe((message :any) =>{
+
+      if(message.id!=this.id){
+        this.items.push(message);
+
+      }    
+      console.log(message);
+
+   });
+
    
-   colorText.color=this.getRandomColor();
-   colorText.text=this.taxt;
+
+   /*this.socketService.socket.on('message',(data)=>{
+     console.log(data);
+   });*/
+
+
+  }
+
+  
+  public gatTaxt() {
+    
+
+  
      if (this.taxt == '') {
     }
     else {
+      var colorText: ItemsModel = new ItemsModel();
+      colorText.id=this.id;
+      colorText.color=this.getRandomColor();
+      colorText.text=this.taxt;
+   
+      this.socketService.sendMessage(colorText)
         this.items.push(colorText);
       this.taxt = '';
      }
@@ -43,6 +65,8 @@ export class TodoComponent implements OnInit {
 
 
   }
+
+
   public getRandomColor() {
     var letters = '0123456789ABCDEF';
     var color = '#';
@@ -51,8 +75,10 @@ export class TodoComponent implements OnInit {
     }
     return color;
   } 
+ 
 
 
 }
+
 
 

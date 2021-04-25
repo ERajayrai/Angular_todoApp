@@ -1,4 +1,4 @@
-<p>todo works!</p>
+
 <div style=" width: 40%;text-align: center;margin-left: 25%;" >
     <nz-input-group nzSearch nzSize="large" [nzAddOnAfter]="suffixButton">
         <input type="text" (keyup.enter)="gatTaxt()" nz-input placeholder="input search text" [(ngModel)]="taxt"/>
@@ -7,7 +7,7 @@
         <button nz-button nzType="primary" nzSize="large" (click)="gatTaxt()" >Add</button>
       </ng-template>
       <div *ngFor="let x  of items; let index = index;" class="container" >
-          <div  style="margin:4px; min-height: 40px; box-align: center;width: auto;border: double;border-radius: 10px; background-color: {{x.color}}; color: #FFEFD5;"  >{{x.text}}<input  type="button" value="Done" (click)="getDelete(index)" style="margin-left: 100%; background-color: black;" /></div>
+          <div  style=" text-align: center; vertical-align: middle; margin:4px; min-height: 40px; box-align: center;width: auto;border: double;border-radius: 10px; background-color: {{x.color}}; color: #FFEFD5; font-size: 15px;  "   >{{x.text}}<input  type="button" value="Done" (click)="getDelete(index)" style="margin-left: 100%; background-color: black;" /></div>
           
       </div> 
          

@@ -12,7 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TodoComponent } from './todo/todo.component';
 import {  SocketIoModule,SocketIoConfig  } from 'ngx-socket-io';
-import { TodoService } from './WebSocketService';
+import { TodoService } from './TodoService';
 
 
 registerLocaleData(en);

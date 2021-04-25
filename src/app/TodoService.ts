@@ -4,21 +4,23 @@ import { io, Socket } from 'socket.io-client';
 
 @Injectable()
 export class TodoService {
-  private socket: Socket;
+  public socket: Socket;
 
   constructor() {
-    this.socket = io('http://127.0.0.1:3000');
+    this.socket = io('ws://127.0.0.1:3000',{withCredentials: true,transports: ["websocket"]});
     this.socket.on('connect', function () {
-        console.log('Connected!');
+        console.log('Connected!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
     });
-    
+
+ 
+
   }
 
  
-  sendMessage(msg: string) {
+  sendMessage(msg: any) {
      // this.socket.connect();
-   console.log(this.socket);
-    this.socket.emit('message', { message: msg });
+   //console.log(this.socket);
+    this.socket.emit('message', msg);
 
   }
 
