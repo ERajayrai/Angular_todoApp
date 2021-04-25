@@ -7,7 +7,7 @@ export class TodoService {
   public socket: Socket;
 
   constructor() {
-    this.socket = io('ws://127.0.0.1:3000',{withCredentials: true,transports: ["websocket"]});
+    this.socket = io('ws://13.234.111.201:3000',{withCredentials: true,transports: ["websocket"]});
     this.socket.on('connect', function () {
         console.log('Connected!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
     });

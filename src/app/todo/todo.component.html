@@ -1,7 +1,7 @@
 
-<div style=" width: 40%;text-align: center;margin-left: 25%;" >
+<div style=" width: 40%;text-align: center;margin-left: 25%; margin-top: 20px;" >
     <nz-input-group nzSearch nzSize="large" [nzAddOnAfter]="suffixButton">
-        <input type="text" (keyup.enter)="gatTaxt()" nz-input placeholder="input search text" [(ngModel)]="taxt"/>
+        <input type="text" (keyup.enter)="gatTaxt()" nz-input placeholder="write and Add your task" [(ngModel)]="taxt"/>
       </nz-input-group>
       <ng-template #suffixButton>
         <button nz-button nzType="primary" nzSize="large" (click)="gatTaxt()" >Add</button>
